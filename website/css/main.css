@@ -1,0 +1,54 @@
+body{
+    background-image:url(../image/sky.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.form{
+    text-align: center;
+    padding: 3% 5%;
+    background-color: #feca9c42;
+    margin: 3% 25%;
+    /* color: #fff; */
+    font-weight: 900;
+    border-radius: 10px;
+}
+.form-text{
+    color:#feca9c  !important;
+}
+
+@media only screen and (max-width: 800px)
+ {
+     .form{
+    margin: 3% 10%;
+
+     }
+ }
+@media only screen and (max-width: 600px)
+ {
+     .form{
+    margin: 3% 5%;
+
+     }
+ }
+.form input{
+    width: 80%;
+    margin: 0 auto;
+}
+.result{
+    text-align: center;
+    /* opacity: 0; */
+    /* display: none; */
+    justify-content: space-around;
+} 
+#result{
+
+    /* display: none; */
+    opacity: 0;
+}
+.icon{
+font-size: 80px;
+}
+.result p{
+    font-weight: 700;
+    font-size: 15px;
+}
