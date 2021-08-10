@@ -11,9 +11,10 @@ let currentData = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
 // console.log(currentData);
 function GenerateClick(e) {
   const ZipCode = document.getElementById('ZipCode').value;
+  console.log(ZipCode.lenght);
   const feelingValue = document.getElementById('feeling-value').value;
   if(ZipCode==''){
-
+    window.alert("enter valid zip code");
   }else{
   console.log(currentData);
   console.log(baseURL + ZipCode + apiKey);
