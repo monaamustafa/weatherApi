@@ -1,14 +1,9 @@
-let baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip='
-let apiKey = ',us&appid=fcfe8047977a4c91e3db4b111dd84a52&units=metric';
-// const ZipCode = document.getElementById('ZipCode').value;
-// console.log(ZipCode);
+const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip='
+const apiKey = ',us&appid=fcfe8047977a4c91e3db4b111dd84a52&units=metric';
 document.getElementById('GetTemperature').addEventListener('click', GenerateClick);
 let innerData = document.querySelectorAll('.result p');
-// let result = document.getElementById('result');
-// console.log(result);
 let d = new Date();
 let currentData = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
-// console.log(currentData);
 function GenerateClick(e) {
   const ZipCode = document.getElementById('ZipCode').value;
   console.log(ZipCode.lenght);
@@ -25,14 +20,10 @@ function GenerateClick(e) {
         temp: data.main.temp,
         feels: data.main.feels_like,
         feelingValue:feelingValue,
-        // currentData:currentData,
       })
       updateUI()
     });
   }
-  document.getElementById('Date').innerHTML +=currentData;
-
-    // result.style.opacity=1;
 }
 const getTemp = async (baseURL, ZipCode, apiKey) => {
   const res = await fetch(baseURL + ZipCode + apiKey)
@@ -74,15 +65,12 @@ const updateUI = async (url = '') => {
   try {
     const returnedData = await request.json();
     console.log(returnedData);
-  //   for(let i=0;i<innerData.length;i++){
-  //     innerData[i].innerHTML=returnedData[i]+ ' °C';
-    document.getElementById('ActualTemperature').innerHTML += returnedData.temp + ' °C';
-    document.getElementById('FeelsLike').innerHTML += returnedData.feels+ ' °C';
-    document.getElementById('YourFeeling').innerHTML += returnedData.feelingValue;
+    document.getElementById('ActualTemperature').innerHTML = "actual temperature: " +returnedData.temp + ' °C';
+    document.getElementById('FeelsLike').innerHTML = "Feels like: "+returnedData.feels+ ' °C';
+    document.getElementById('YourFeeling').innerHTML = "Your Feeling: "+returnedData.feelingValue;
+    document.getElementById('Date').innerHTML ="Date:"+currentData;
     document.getElementById('result').style.opacity=1;
   } catch (error) {
     console.log("didn't retreive", error);
   }
-  // document.getElementsById('result').style.opacity=1;
-
 }
